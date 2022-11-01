@@ -1,0 +1,5 @@
+.imagen{
+    border-radius: 2rem;
+    filter: blur(0.1rem);
+    width: 150px;
+}

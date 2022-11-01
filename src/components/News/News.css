@@ -1,0 +1,13 @@
+.container-news{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.new-item{
+    width: 300px;
+}
+.image-new{
+    width: 250px;
+    height: 250px;
+    border-radius: 1.2rem;
+}
