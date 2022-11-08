@@ -1,37 +1,38 @@
-import React, {useEffect,useState} from 'react'
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import './Personajes.css'
 
 const Personajes = () => {
-    const [personajes, setPersonajes] = useState([])
-    const fetchPersonaje=async()=>{
-        
-           
-           let response = await fetch("https://rickandmortyapi.com/api/character");
-           console.log(response)
-           let data = await response.json();
-           
-          setPersonajes(data.results)
-
-    }
-useEffect(() => {
- fetchPersonaje()
-}, [])
+  const [personajes, setPersonajes] = useState([]);
+  const fetchPersonaje = async () => {
+   const response= await axios.get("https://rickandmortyapi.com/api/character")
+   setPersonajes(response.data.results)
+  };
+  useEffect(() => {
+    fetchPersonaje();
+  }, []);
 
   return (
-    <div>
-      {
-        personajes.map(personaje=>(
-            <div key={personaje.id}>
-                <h1>
-                    {
-                        personaje.name
-                    }
-                </h1>
-                <img src={personaje.image}/>
-            </div>
-        ))
-      }
+    <div className="contenedor-personajes">
+      <table id="personajes">
+        <thead>
+          <th>Nombre</th>
+          <th>Imagen</th>
+        </thead>
+        
+        <tbody>
+          {personajes.map((personaje) => (
+            <tr  key={personaje.id}>
+              <td>{personaje.name}</td>
+              <td>
+                <img src={personaje.image} style={{ width: "100px" }} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
-  )
-}
+  );
+};
 
-export default Personajes
+export default Personajes;
