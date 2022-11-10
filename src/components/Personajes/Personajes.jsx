@@ -14,6 +14,7 @@ const Personajes = () => {
 
   return (
     <div className="contenedor-personajes">
+      <h1>Rick And Morty</h1>
       <table id="personajes">
         <thead>
           <th>Nombre</th>

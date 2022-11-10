@@ -14,7 +14,7 @@ const App = () => {
   <div>
 
       <Menu/>
-      <h1>Rick And Morty</h1>
+      
 
       <Routes>
         <Route path="/" element={<FormularioNoticias />} />
