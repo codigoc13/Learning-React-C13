@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getAllItems } from "../../actions/action";
 import './News.css'
 
@@ -18,11 +19,11 @@ const News = () => {
   return (
     <div className="container-news">
       {news.map((newInfo) => (
-        <div key={newInfo._id} className='new-item'>
+        <Link key={newInfo._id} className='new-item' to={`/News/${newInfo._id}`}>
           
-          <img className="image-new" src={newInfo.imageNew} />
-          <span>{newInfo.name}</span>
-        </div>
+          <img className="image-new" src={newInfo.image} />
+          <span>{newInfo.title}</span>
+        </Link>
       ))}
     </div>
   );
